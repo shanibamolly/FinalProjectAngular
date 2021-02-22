@@ -1,0 +1,50 @@
+<header>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li><a routerLink="add" class="nav-link" routerLinkActive="active">Add Policies</a></li>
+            <li><a routerLink="view" class="nav-link" routerLinkActive="active">View Policies</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div style="width: 500px ;" class="uform">
+    <h2>POLICY EDITING FORM!</h2>
+
+    <form (ngSubmit)="onUpdate()">
+
+        <div class="form-group">
+            <label for="name">PolicyName</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="policy.name" name="name" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>PolicyType</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="MOTORPOLICY" [(ngModel)]="policy.type">
+                <label class="form-check-label">Motor Policy</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="HEALTHPOLICY" [(ngModel)]="policy.type">
+                <label class="form-check-label">Health Policy</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="PROPERTYPOLICY"
+                    [(ngModel)]="policy.type">
+                <label class="form-check-label">Property Policy</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Duration</label>
+            <input type="text" class="form-control" id="duration" required [(ngModel)]="policy.duration"
+                name="duration">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Amount</label>
+            <input type="text" class="form-control" id="amount" required [(ngModel)]="policy.amount" name="amount">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>

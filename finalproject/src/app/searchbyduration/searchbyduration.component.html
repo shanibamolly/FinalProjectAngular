@@ -1,0 +1,46 @@
+<div style="width: 300px;" class="uform">
+    <h2>Search Policy</h2>
+    <form (ngSubmit)="onsearchSubmit()">
+        <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="number" class="form-control" id="duration" required [(ngModel)]="duration" name="duration">
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary btn-sm" >Submit</button>
+            <button type="submit" class="btn btn-primary btn-sm" (click)="back()">Move Back </button>
+        </div>
+    </form>
+</div>
+<br />
+<div class="card rounder-0">
+    <div class="tform">
+        <div [hidden]="!submitted">
+            <h2>Available Policies</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Policy Name</th>
+                        <th>Policy Type</th>
+                        <th>Duration(in years)</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let policy of policies | paginate: { itemsPerPage:count, currentPage:p } ">
+                        <td>{{policy.id}}</td>
+                        <td>{{policy.name}}</td>
+                        <td>{{policy.type}}</td>
+                        <td>{{policy.duration}}</td>
+                        <td>{{policy.amount}}</td>
+                        <td><span class="button is-small btn-info" (click)="register(policy)">Payment</span>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right" style="margin-right: 15%;">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

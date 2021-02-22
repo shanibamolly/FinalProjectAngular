@@ -1,0 +1,68 @@
+<header>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li><a routerLink="add" class="nav-link" routerLinkActive="active">Add Policies</a></li>
+            <li><a routerLink="add/view" class="nav-link" routerLinkActive="active">View Policies</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li><span *ngIf="adminlogin.isUserLoggedIn() " class="navbar-text ">Welcome {{adminlogin.id}}</span></li>
+            <li><a *ngIf="adminlogin.isUserLoggedIn() " routerLink="/logoutadmin" class="nav-link">Logout</a></li>
+        </ul> 
+    </nav>
+</header>
+
+<div style="width: 500px ;" class="uform">
+    <h2>POLICY REGISTRATION FORM!</h2>
+    <form (ngSubmit)="onpolicySubmit()" #policyform="ngForm">
+
+        <div class="form-group">
+            <label for="name">PolicyName</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="policy.name" name="name"
+                #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Policy name is required</small>
+        </div>
+
+        <div class="form-group">
+            <label>PolicyType</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="MOTORPOLICY" [(ngModel)]="policy.type"
+                    #type="ngModel" required>
+                <label class="form-check-label">Motor Policy</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="HEALTHPOLICY" [(ngModel)]="policy.type"
+                    #type="ngModel" required>
+                <label class="form-check-label">Health Policy</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" value="PROPERTYPOLICY"
+                    [(ngModel)]="policy.type" #type="ngModel" required>
+                <label class="form-check-label">Property Policy</label>
+            </div>
+            <div *ngIf="type.invalid && type.untouched" class="text-danger">
+                <small>Policy type is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Duration(in years)</label>
+            <input type="number" class="form-control" id="duration" required [(ngModel)]="policy.duration"
+                name="duration" #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Duration is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Amount</label>
+            <input type="number" class="form-control" id="amount" required [(ngModel)]="policy.amount" name="amount"
+                #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Amount is required</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="policyform.form.invalid">Submit</button>
+    </form>
+</div>
+<br><br>
+<div [hidden]="!submitted" class="text-center">
+    <h3>You submitted successfully!</h3>
+    <button class="btn btn-primary btn-sm" (click)="newPolicy()">Add</button>
+</div>

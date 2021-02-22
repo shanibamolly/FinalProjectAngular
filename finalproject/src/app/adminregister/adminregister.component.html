@@ -1,0 +1,85 @@
+<h3>ADMIN REGISTRATION FORM </h3>
+<div [hidden]="submitted" style="width:300px;" class="uform">
+    <form (ngSubmit)="onadminSubmit()" #adminform="ngForm">
+
+        <div class="form-group">
+            <label for="id">Admin ID</label>
+            <input type="number" class="form-control" id="id" required [(ngModel)]="admin.id" name="id" #id="ngModel"
+                [class.is-invalid]="id.invalid && id.touched">
+            <small class="text-danger" [class.d-none]="id.valid || id.untouched"> Admin ID is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required [(ngModel)]="admin.password"
+                name="password" #password="ngModel" minlength="4"
+                [class.is-invalid]="password.invalid && password.touched">
+            <div *ngIf="password.errors && (password.invalid || password.touched)">
+                <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                <small class="text-danger" *ngIf="password.errors.minlength">Password must be 4 digit</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" required [(ngModel)]="admin.firstname"
+                name="firstname" #firstname="ngModel" [class.is-invalid]="firstname.invalid && firstname.touched">
+            <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched"> First Name is
+                required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" required [(ngModel)]="admin.lastname" name="lastname"
+                #lastname="ngModel" [class.is-invalid]="lastname.invalid && lastname.touched">
+            <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched"> Last Name is
+                required</small>
+        </div>
+
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" required [(ngModel)]="admin.age" name="age"
+                #age="ngModel" [class.is-invalid]="age.invalid && age.touched" pattern="^\d{2}$">
+            <div *ngIf="age.errors && (age.invalid || age.touched)">
+                <small class="text-danger" *ngIf="age.errors.required">Age is required</small>
+                <small class="text-danger" *ngIf="age.errors.pattern">Age must be 2 digit</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="MALE" [(ngModel)]="admin.gender"
+                    #gender="ngModel" required>
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="FEMALE" [(ngModel)]="admin.gender"
+                    #gender="ngModel" required>
+                <label class="form-check-label">Female</label>
+            </div>
+            <div *ngIf="gender.invalid && gender.untouched" class="text-danger">
+                <small>Gender is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="contactno">Contact Number</label>
+            <input type="tel" class="form-control" id="contactno" required [(ngModel)]="admin.contactno"
+                name="contactno" #contactno="ngModel" [class.is-invalid]="contactno.invalid && contactno.touched"
+                pattern="^\d{10}$">
+            <div *ngIf="contactno.errors && (contactno.invalid || contactno.touched)">
+                <small class="text-danger" *ngIf="contactno.errors.required">Contact is required</small>
+                <small class="text-danger" *ngIf="contactno.errors.pattern">Contact must be 10 digit</small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="adminform.invalid">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted" class="text-center">
+    <h4>you submitted successfully</h4>
+    <button class="btn btn-primary" (click)="back()">Back</button>
+</div>
