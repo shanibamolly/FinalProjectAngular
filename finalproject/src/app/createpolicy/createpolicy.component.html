@@ -11,8 +11,10 @@
     </nav>
 </header>
 
-<div style="width: 500px ;" class="uform">
+<div [hidden]="submitted" style="width: 500px ;" class="uform">
+
     <h2>POLICY REGISTRATION FORM!</h2>
+
     <form (ngSubmit)="onpolicySubmit()" #policyform="ngForm">
 
         <div class="form-group">
@@ -59,9 +61,11 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="policyform.form.invalid">Submit</button>
+
     </form>
+    
 </div>
-<br><br>
+
 <div [hidden]="!submitted" class="text-center">
     <h3>You submitted successfully!</h3>
     <button class="btn btn-primary btn-sm" (click)="newPolicy()">Add</button>

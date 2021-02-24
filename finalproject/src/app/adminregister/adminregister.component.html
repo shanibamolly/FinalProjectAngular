@@ -1,5 +1,7 @@
 <h3>ADMIN REGISTRATION FORM </h3>
+
 <div [hidden]="submitted" style="width:300px;" class="uform">
+
     <form (ngSubmit)="onadminSubmit()" #adminform="ngForm">
 
         <div class="form-group">
@@ -76,10 +78,13 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="adminform.invalid">Submit</button>
+
     </form>
+    
 </div>
 
+
 <div [hidden]="!submitted" class="text-center">
-    <h4>you submitted successfully</h4>
+    <h3>You submitted successfully</h3>
     <button class="btn btn-primary" (click)="back()">Back</button>
 </div>

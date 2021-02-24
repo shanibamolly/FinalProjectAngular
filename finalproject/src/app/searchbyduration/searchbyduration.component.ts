@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Policy } from '../policy';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { UserloginauthenticationService } from '../userloginauthentication.service';
 
 @Component({
   selector: 'app-searchbyduration',
@@ -18,7 +19,8 @@ export class SearchbydurationComponent implements OnInit {
 
   policies:Policy[];
 
-  constructor(private userService:UserService,private router : Router) { }
+  constructor(private userService:UserService,private router : Router,
+    public userlogin:UserloginauthenticationService) { }
 
   ngOnInit(): void {
     this.duration=null;
@@ -38,8 +40,7 @@ export class SearchbydurationComponent implements OnInit {
           );
   }
   
-onsearchSubmit()
-{
+onsearchSubmit(){
   this.searchPolicy();
 }
 

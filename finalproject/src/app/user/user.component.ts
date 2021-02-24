@@ -31,16 +31,16 @@ export class UserComponent implements OnInit {
         data => {
           this.router.navigate(['search']);
           this.invalidLogin = false
-        },        
+        },
         error => {
           this.router.navigate(['**']),
-          console.log(error)   
+            console.log(error)
         }
-        );
-       
+      );
+
   }
 
- 
+
 
 }
 

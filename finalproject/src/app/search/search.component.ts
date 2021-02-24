@@ -25,4 +25,5 @@ export class SearchComponent implements OnInit {
   byid() {
     this.router.navigate(['searchbyid']);
   }
+  
 }

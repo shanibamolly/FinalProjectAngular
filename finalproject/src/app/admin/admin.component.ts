@@ -36,8 +36,7 @@ export class AdminComponent implements OnInit {
           this.router.navigate(['**']),
           console.log(error) 
         }
-        );
-       
+        ); 
         
   }
   

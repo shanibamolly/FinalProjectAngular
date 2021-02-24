@@ -12,16 +12,20 @@ import { AdminloginauthenticationService } from '../adminloginauthentication.ser
 export class CreatepolicyComponent implements OnInit {
 
   policy: Policy = new Policy();
+
   submitted = false;
+
   constructor(private adminService: AdminService, private router: Router,
     public adminlogin:AdminloginauthenticationService) { }
 
   ngOnInit(): void {
   }
+
   newPolicy(): void {
     this.submitted = false;
     this.policy = new Policy();
   }
+
   save() {
     this.adminService.createPolicy(this.policy)
       .subscribe(
@@ -32,8 +36,8 @@ export class CreatepolicyComponent implements OnInit {
         error => console.log(error));
     this.policy = new Policy();
   }
-  onpolicySubmit() {
 
+  onpolicySubmit() {
     this.save();
   }
  

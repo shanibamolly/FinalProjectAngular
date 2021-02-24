@@ -33,5 +33,8 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  changeStatus(id:number):Observable<any>{
+    return this.http.get(`${this.baseUrl}/status/${id}`);
+  }
   
 }

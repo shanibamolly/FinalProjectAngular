@@ -18,6 +18,7 @@ import { SearchbynameComponent } from './searchbyname/searchbyname.component';
 import { SearchbyidComponent } from './searchbyid/searchbyid.component';
 import { SearchbydurationComponent } from './searchbyduration/searchbyduration.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ViewpolicyuserComponent } from './viewpolicyuser/viewpolicyuser.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'view',component:ViewpolicyComponent},
   {path:'edit',component:EditpolicyComponent},
   {path:'search',component:SearchComponent},
+  {path:'search/view',component:ViewpolicyuserComponent},
   {path:'searchbyname',component:SearchbynameComponent},
   {path:'searchbyid',component:SearchbyidComponent},
   {path:'searchbyduration',component:SearchbydurationComponent},

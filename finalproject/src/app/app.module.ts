@@ -23,6 +23,7 @@ import { SearchbyidComponent } from './searchbyid/searchbyid.component';
 import { SearchbydurationComponent } from './searchbyduration/searchbyduration.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ViewpolicyuserComponent } from './viewpolicyuser/viewpolicyuser.component';
 
 
 
@@ -45,7 +46,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     SearchbynameComponent,
     SearchbyidComponent,
     SearchbydurationComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ViewpolicyuserComponent
     
     
   ],

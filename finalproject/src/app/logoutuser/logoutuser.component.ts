@@ -13,7 +13,10 @@ export class LogoutuserComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+
     this.userauthenticationService.logOut();
-    this.router.navigate(['adminlogin']);
+
+    this.router.navigate(['userlogin']);
+    
   }
 }

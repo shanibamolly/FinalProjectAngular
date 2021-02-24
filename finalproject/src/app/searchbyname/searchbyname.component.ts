@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Policy } from '../policy';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { UserloginauthenticationService } from '../userloginauthentication.service';
 
 @Component({
   selector: 'app-searchbyname',
@@ -18,7 +19,8 @@ export class SearchbynameComponent implements OnInit {
 
   policies: Policy[];
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router,
+    public userlogin:UserloginauthenticationService) { }
 
   ngOnInit(): void {
     this.name = null;

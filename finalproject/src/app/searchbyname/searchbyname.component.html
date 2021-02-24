@@ -1,22 +1,52 @@
+<header>
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+        <ul class="navbar-nav">
+            <li><a   class="nav-link">Search Policies</a></li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li><span *ngIf="userlogin.isUserLoggedIn() " class="navbar-text ">Welcome user {{userlogin.id}}</span></li>
+            <li><a *ngIf="userlogin.isUserLoggedIn() " routerLink="/logoutuser" class="nav-link">Logout</a></li>
+        </ul> 
+
+    </nav>
+
+</header>
+
 <div style="width: 300px;" class="uform">
+
     <h2>Search Policy</h2>
+
     <form (ngSubmit)="onsearchSubmit()">
+
         <div class="form-group">
             <label for="name">PolicyName</label>
             <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
         </div>
+
         <div class="btn-group">
             <button type="submit" class="btn btn-primary btn-sm" >Submit</button>
             <button type="submit" class="btn btn-primary btn-sm" (click)="back()">Move Back </button>
         </div>
+
     </form>
+
 </div>
+
 <br />
+
 <div class="card rounder-0">
+
     <div class="tform">
+
         <div [hidden]="!submitted">
+
             <h2>Available Policies</h2>
+
             <table class="table table-striped">
+
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -27,6 +57,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr *ngFor="let policy of policies | paginate: { itemsPerPage:count, currentPage:p }  ">
                         <td>{{policy.id}}</td>
@@ -37,10 +68,15 @@
                         <td><span class="button is-small btn-info" (click)="register(policy)">Payment</span>
                     </tr>
                 </tbody>
+
             </table>
+
             <div class="text-right" style="margin-right: 15%;">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
+
         </div>
+
     </div>
+    
 </div>

@@ -12,6 +12,7 @@ export class PaysuccessComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   back(){
     this.router.navigate(['search']);
   }

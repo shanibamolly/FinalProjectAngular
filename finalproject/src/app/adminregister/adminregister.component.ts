@@ -17,6 +17,7 @@ export class AdminregisterComponent implements OnInit {
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
   back(): void {

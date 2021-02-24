@@ -1,5 +1,7 @@
 <h3>USER REGISTRATION FORM </h3>
+
 <div [hidden]="submitted" style="width:300px;" class="uform">
+
     <form (ngSubmit)="onuserSubmit()" #userform="ngForm">
 
         <div class="form-group">
@@ -75,7 +77,9 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="userform.invalid">Submit</button>
+
     </form>
+    
 </div>
 
 <div [hidden]="!submitted" class="text-center">

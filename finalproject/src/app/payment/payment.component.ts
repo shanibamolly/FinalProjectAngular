@@ -3,6 +3,7 @@ import { Policy } from '../policy';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { Payment } from '../payment';
+import { UserloginauthenticationService } from '../userloginauthentication.service';
 
 @Component({
   selector: 'app-payment',
@@ -19,8 +20,8 @@ export class PaymentComponent implements OnInit {
 
   id:number;
 
-
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router,
+    public userlogin:UserloginauthenticationService) { }
 
   ngOnInit(): void {
     this.editPolicy();
@@ -35,8 +36,14 @@ export class PaymentComponent implements OnInit {
       })
   }
 
-  onUpdate() {   
-      this.router.navigate(["success"]);
-    
+  onUpdate() {      
+     this.userService.changeStatus(this.userlogin.id)
+          .subscribe(
+            data=>{            
+            },
+            error=>console.log(error)
+          );
+      this.router.navigate(["success"]);    
   }
+  
 }
